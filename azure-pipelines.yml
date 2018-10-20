@@ -20,5 +20,5 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)\site-app\build'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/site-app/build'
     includeRootFolder: false
