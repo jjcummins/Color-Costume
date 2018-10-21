@@ -23,6 +23,11 @@ steps:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/site-app/build'
     includeRootFolder: false
 
-- task: PublishBuildArtifacts@1
+- task: CopyFiles@2
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/site-app/build'
+    Contents: |
+      **\*.zip
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
