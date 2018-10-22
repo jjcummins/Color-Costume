@@ -20,7 +20,7 @@ class App extends Component {
           <p>
             Welcome to William's Costume Site!
           </p>
-          <SliderPicker color={ this.state.background } onChangeComplete={ this.handleChangeComplete }/>
+          <SliderPicker color={ this.state.background } onChangeComplete={ this.handleChangeComplete } className="App-slider" />
         </header>
       </div>
       );
