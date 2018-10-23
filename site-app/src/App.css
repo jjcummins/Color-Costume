@@ -17,6 +17,12 @@
   color: white;
 }
 
+.App-slider {
+  display: block;
+  width: 50vh;
+  min-width: 250px;
+}
+
 .App-link {
   color: #61dafb;
 }
