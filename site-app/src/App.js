@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { SliderPicker } from 'react-color'; 
+import { SliderPicker } from 'react-color';
+import axios from 'axios';
 
 class App extends Component {
   state = {
@@ -10,6 +11,16 @@ class App extends Component {
 
   handleChangeComplete = (color) => {
     this.setState({ background: color.hex });
+    axios.post('https://williamcostumefunction.azurewebsites.net/api/ChangeColor', {
+       params: { 
+         code: 'iMzYu34ogAxAt4kYj0MJoaIhyT4lqVbLw7svCUn2bxq1GYUaWh1oOw==',
+         color: color.hex
+        } 
+      }).then(function (response) {
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
+      })
   };
   
   render() {
