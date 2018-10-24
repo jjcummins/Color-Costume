@@ -14,7 +14,7 @@ namespace Jeremy.Function
     {
         [FunctionName("ChangeColor")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", "options", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", "options", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation($"Change Color function processed a request of method {req.Method}.");
