@@ -14,10 +14,15 @@ namespace Jeremy.Function
     {
         [FunctionName("ChangeColor")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", "options", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("Change Color function processed a request.");
+            log.LogInformation($"Change Color function processed a request of method {req.Method}.");
+
+            if (req.Method.Equals(HttpMethods.Options, StringComparison.OrdinalIgnoreCase))
+            {
+                return new OkResult();
+            } 
 
             string color = req.Query["color"];
 
@@ -30,14 +35,6 @@ namespace Jeremy.Function
             return color != null
                 ? (ActionResult)new OkResult()
                 : new BadRequestObjectResult("Please pass a color on the query string or in the request body");
-        }
-
-        [FunctionName("ChangeColor")]
-        public static IActionResult Options(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "OPTIONS", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            return new OkResult();
         }
     }
 }
