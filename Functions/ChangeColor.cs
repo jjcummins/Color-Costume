@@ -31,5 +31,13 @@ namespace Jeremy.Function
                 ? (ActionResult)new OkResult()
                 : new BadRequestObjectResult("Please pass a color on the query string or in the request body");
         }
+
+        [FunctionName("ChangeColor")]
+        public static IActionResult Options(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "OPTIONS", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            return new OkResult();
+        }
     }
 }
