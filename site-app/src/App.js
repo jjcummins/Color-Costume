@@ -15,7 +15,8 @@ class App extends Component {
        params: { 
          code: 'iMzYu34ogAxAt4kYj0MJoaIhyT4lqVbLw7svCUn2bxq1GYUaWh1oOw==',
          color: color.hex
-        } 
+        }, 
+        headers: {'x-functions-key': "iMzYu34ogAxAt4kYj0MJoaIhyT4lqVbLw7svCUn2bxq1GYUaWh1oOw== "} 
       }).then(function (response) {
         console.log(response);
       }).catch(function (error) {
